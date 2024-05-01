@@ -1,3 +1,4 @@
+name: Custom check report
 on:
   workflow_dispatch:
 
