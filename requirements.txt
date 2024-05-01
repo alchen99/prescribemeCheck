@@ -4,9 +4,6 @@ certifi==2024.2.2
 charset-normalizer==3.3.2
 gql==3.5.0
 graphql-core==3.2.3
-h11==0.14.0
-httpcore==1.0.5
-httpx==0.27.0
 idna==3.7
 multidict==6.0.5
 pdpyras==5.2.0
