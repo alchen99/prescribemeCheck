@@ -9,7 +9,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
       - name: Run custom check
-        run: python report.py
+        run: |
+          pip install -r requirements.txt
+          python report.py
         env:
           OPSLEVEL_API_TOKEN: '${{ secrets.OPSLEVEL_API_TOKEN }}' 
