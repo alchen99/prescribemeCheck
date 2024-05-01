@@ -1,0 +1,15 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  report_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run custom check
+        run: python report.py
+        env:
+          OPSLEVEL_API_TOKEN: '${{ secrets.OPSLEVEL_API_TOKEN }}' 

@@ -1,0 +1,10 @@
+version: '3'
+services:
+  check:
+    image: check:latest
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      PAGERDUTY_API_KEY: ${PAGERDUTY_API_KEY}
+      OPSLEVEL_WEBHOOK_SECRET: ${OPSLEVEL_WEBHOOK_SECRET}

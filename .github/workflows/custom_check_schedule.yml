@@ -1,0 +1,18 @@
+on:
+  schedule:
+    - cron: '0 3 * * 3'
+  workflow_dispatch:
+
+jobs:
+  check_schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run custom check
+        run: python app.py
+        env:
+          PAGERDUTY_API_KEY: '${{ secrets.PAGERDUTY_API_KEY }}'
+          OPSLEVEL_WEBHOOK_SECRET: '${{ secrets.OPSLEVEL_WEBHOOK_SECRET }}' 
