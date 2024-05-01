@@ -217,7 +217,7 @@ def main():
   services = []
 
   print()
-  print(f"Report for check {check_name} which has a check id of {check_id}")
+  print(f"Report for failed check {check_name} which has a check id of {check_id}")
   print(f"==========================================================================================================================")
 
   if filter_id is not None:
@@ -227,16 +227,16 @@ def main():
       services_nodes = services_json['account']['services']['nodes']
       for services_node in services_nodes:
         latestCheckResults = services_node['maturityReport']['latestCheckResults'][0]
-        print(f"Service name = {latestCheckResults['service']['name']}")
-        print(f"Service alias = {latestCheckResults['serviceAlias']}")
-        print(f"Service owner name = {latestCheckResults['service']['owner']['name']}")
-        for contact in latestCheckResults['service']['owner']['contacts']:
-          if contact['displayName'] == 'Email':
-            print(f"Service owner email = {contact['address']}")
-        print(f"Check status = {latestCheckResults['status']}")
         if latestCheckResults['status'] == 'failed':
+          print(f"Service name = {latestCheckResults['service']['name']}")
+          print(f"Service alias = {latestCheckResults['serviceAlias']}")
+          print(f"Service owner name = {latestCheckResults['service']['owner']['name']}")
+          for contact in latestCheckResults['service']['owner']['contacts']:
+            if contact['displayName'] == 'Email':
+              print(f"Service owner email = {contact['address']}")
+          print(f"Check status = {latestCheckResults['status']}")
           print(f"Check message = {latestCheckResults['message']}")
-        print()
+          print()
 
       has_next_page = services_json['account']['services']['pageInfo']['hasNextPage']
       after_cursor = services_json['account']['services']['pageInfo']['endCursor']
@@ -247,16 +247,16 @@ def main():
       services_nodes = services_json['account']['services']['nodes']
       for services_node in services_nodes:
         latestCheckResults = services_node['maturityReport']['latestCheckResults'][0]
-        print(f"Service name = {latestCheckResults['service']['name']}")
-        print(f"Service alias = {latestCheckResults['serviceAlias']}")
-        print(f"Service owner name = {latestCheckResults['service']['owner']['name']}")
-        for contact in latestCheckResults['service']['owner']['contacts']:
-          if contact['displayName'] == 'Email':
-            print(f"Service owner email = {contact['address']}")
-        print(f"Check status = {latestCheckResults['status']}")
         if latestCheckResults['status'] == 'failed':
+          print(f"Service name = {latestCheckResults['service']['name']}")
+          print(f"Service alias = {latestCheckResults['serviceAlias']}")
+          print(f"Service owner name = {latestCheckResults['service']['owner']['name']}")
+          for contact in latestCheckResults['service']['owner']['contacts']:
+            if contact['displayName'] == 'Email':
+              print(f"Service owner email = {contact['address']}")
+          print(f"Check status = {latestCheckResults['status']}")
           print(f"Check message = {latestCheckResults['message']}")
-        print()
+          print()
 
       has_next_page = services_json['account']['services']['pageInfo']['hasNextPage']
       after_cursor = services_json['account']['services']['pageInfo']['endCursor']
